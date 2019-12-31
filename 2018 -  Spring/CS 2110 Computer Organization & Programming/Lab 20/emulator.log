@@ -1,0 +1,23 @@
+Unknown configuration key throttle
+vbam: could not connect to socket
+vbam: No such file or directory
+VBA-M (BBA) [SDL]
+Searching for file vbam.cfg
+Searching current directory: /home/zwaters3/Desktop/Lab20/lab20
+Searching home directory: /home/zwaters3/.vbam
+Searching data directory: /usr/share/vbam
+Searching system config directory: /etc
+Reading configuration file.
+Searching for file vba-over.ini
+Searching current directory: /home/zwaters3/Desktop/Lab20/lab20
+Searching home directory: /home/zwaters3/.vbam
+Searching data directory: /usr/share/vbam
+Searching system config directory: /etc
+vba-over.ini NOT FOUND (using emulator settings)
+Trying patch lab20.ips
+Trying patch lab20.ups
+Trying patch lab20.ppf
+Trying to start LIRC: Failed
+Color depth: 32
+Shutting down
+13:02:32 28.03.2018: Wrote battery

@@ -1,0 +1,76 @@
+===============================================================================
+CS2110                              Lab 11                          Spring 2018
+===============================================================================
+ 
+Objective: Learning how to code a simple trap in LC-3 Assembly.
+ 
+Try to collaborate with your classmates if you're stuck, and don'thesitate to
+ask the TA's for help. If you are stuck on one part, or not clear about what
+it's asking, feel free to ask. Remember, we are here to help you :)
+
+In this lab, you're going to be writing a trap!
+
+BE SURE TO ENABLE TRUE TRAPS IN COMPLX BEFORE YOU RUN YOUR CODE.
+
+Trap Introduction
+-----------------
+Traps are subroutines that you can call using the TRAP instruction. PUTS, GETC,
+OUT, and HALT are all examples of pseudo-operations that assemble to trap
+instructions. They work using the Trap Vector Table. 
+
+The Trap Vector Table is an area in memory (x0000 - x00FF) that contains the
+addresses of where the data of the trap subroutines are located in memory. For
+example, if the code for trap x60 was located at address x7000 in memory, the
+corresponding entry in the trap vector table (x60) will contain the value x7000.
+When the instruction 'TRAP x60' is executed, the current PC is saved to register
+R7, the datapath looks up where trap x60 is located (x7000), the PC is changed
+to that value (x7000), the trap executes, and finally, after the trap is done
+executing, the PC is changed back to the original value (the one initially
+stored in R7).
+
+Problem
+-------
+Implement a TRAP that makes a character string pointed to by R0 all lowercase.
+
+For instance, if R0 points to the string "Hello World!", the trap should change
+its contents to "hello world!". This trap should be callable by writing
+TRAP x40 in your code. No registers (except R7) should be modified. You do not
+need to conform to any calling conventions.
+
+To get credit for this lab, you must implement the code in the provided
+template, then use the provided XML test to see if your code is correct. Please
+use a terminal in the directory with your lab files, and show the output from
+the following command to a TA:
+
+lc3test lab11.xml lab11.asm
+
+
+Pseudocode
+----------
+void lower(char *str) {
+    char c = str[0];
+    while(c != 0) {
+        if(c >= 'A' && c <= 'Z') {
+            c += 32;
+            str[0] = c;
+	}
+        string++;
+        c = str[0];
+    }
+}
+
+Hints
+-----
+If you see "Warning at 0x3007: Unsupported Trap x40." Then enable true traps
+from State > True Traps (or just ctrl+T).
+
+Yes, it's normal that your program is halting at address 0x054A. By enabling
+true traps, the actual trap code gets processed by complx, and this is the
+location where the processor stops in the HALT trap.
+
+The line "char *str" is a parameter that points to the address of the string.
+
+Strings in C and LC3 are null-terminated, meaning that there is a value of zero
+zero at the end of the string. Printing functions like printf and PUTS know to stop
+printing characters when they reach this value.
+

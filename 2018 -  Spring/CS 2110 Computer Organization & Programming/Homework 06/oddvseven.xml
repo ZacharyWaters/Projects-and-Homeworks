@@ -1,0 +1,107 @@
+<test-suite>
+    <test-case>
+        <name>oddvseven([0, 1, 2])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>0, 1, 2</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>3</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="4">
+                <value>ZERO\nODD\nEVEN\n</value>
+            </test-stdout>
+        </output>
+    </test-case>
+    <test-case>
+        <name>oddvseven([-1, -2, 0, 1, 2])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>-1, -2, 0, 1, 2</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>5</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="4">
+                <value>ODD\nEVEN\nZERO\nODD\nEVEN\n</value>
+            </test-stdout>
+        </output>
+    </test-case>
+    <test-case>
+        <name>oddvseven([28212, 21998])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>28212, 21998</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>2</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="4">
+                <value>EVEN\nEVEN\n</value>
+            </test-stdout>
+        </output>
+    </test-case>
+    <test-case>
+        <name>oddvseven([564, 2462, -7183, -8136, -2816, -9076, -7403, -7182, 6962, -6844, 5488, -2117, 2332, -5055, 5835, 693, -100, -9863, -5446, 7402, 7913, 3567, -6000, 7307, -9992, -340, 9020, -5962, 6951, -800, -6619, 4154, -8776, -7862, 9944, 9340, -1749, -2021, -4174, 6281, -979, 3122, -3042, 4219, 1981, 2066, -6692, -7423, -2149, 866])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>564, 2462, -7183, -8136, -2816, -9076, -7403, -7182, 6962, -6844, 5488, -2117, 2332, -5055, 5835, 693, -100, -9863, -5446, 7402, 7913, 3567, -6000, 7307, -9992, -340, 9020, -5962, 6951, -800, -6619, 4154, -8776, -7862, 9944, 9340, -1749, -2021, -4174, 6281, -979, 3122, -3042, 4219, 1981, 2066, -6692, -7423, -2149, 866</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>50</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="4">
+                <value>EVEN\nEVEN\nODD\nEVEN\nEVEN\nEVEN\nODD\nEVEN\nEVEN\nEVEN\nEVEN\nODD\nEVEN\nODD\nODD\nODD\nEVEN\nODD\nEVEN\nEVEN\nODD\nODD\nEVEN\nODD\nEVEN\nEVEN\nEVEN\nEVEN\nODD\nEVEN\nODD\nEVEN\nEVEN\nEVEN\nEVEN\nEVEN\nODD\nODD\nEVEN\nODD\nODD\nEVEN\nEVEN\nODD\nODD\nEVEN\nEVEN\nODD\nODD\nEVEN\n</value>
+            </test-stdout>
+        </output>
+    </test-case>
+    <test-case>
+        <name>oddvseven([])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>0</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>0</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="4">
+                <value></value>
+            </test-stdout>
+        </output>
+    </test-case>
+</test-suite>

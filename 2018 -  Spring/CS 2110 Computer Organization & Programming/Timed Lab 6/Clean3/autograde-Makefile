@@ -1,0 +1,40 @@
+CC = gcc
+CFLAGS = -Wl,--wrap=malloc,--wrap=free,--wrap=calloc,--wrap=realloc -D_POSIX_SOURCE -Wall -Werror -pedantic -std=c99
+DEBUG_FLAGS = -g -DDEBUG
+
+CFILES = list_array.c grader.c wrap.c
+OFILES = list_array.o grader.o wrap.o
+
+prod: extract-grader ahh stuff
+
+stuff: clean tl06tests_forkless tl06tests_forked tl06tests_single
+	python3 ./grader.py
+
+extract-grader:
+	tar -xvf autograde.tar
+
+ahh: copy
+	rm -f list_array.c
+	cp list_array_student.c list_array.c
+	python3 ./ahh.py
+
+tl06tests_forkless: tl06tests
+	$(CC) $(CFLAGS) $(OFILES) grader_runner_forkless.c -o tl06tests_forkless
+
+tl06tests_forked: tl06tests
+	$(CC) $(CFLAGS) $(OFILES) grader_runner_forked.c -o tl06tests_forked
+
+tl06tests_single: tl06tests
+	$(CC) $(CFLAGS) $(OFILES) grader_runner_single.c -o tl06tests_single
+
+tl06tests: $(CFILES)
+	$(CC) $(CFLAGS) -c $(CFILES)
+
+tar-grader:
+	tar -cvf autograde.tar -T grader_files.txt
+
+clean:
+	rm -f *.o tl06tests_forkless tl06tests_forked tl06tests_single gradelog.json
+
+copy: extract-grader
+	/bin/bash copy.sh

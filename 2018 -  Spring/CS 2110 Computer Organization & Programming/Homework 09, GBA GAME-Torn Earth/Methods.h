@@ -1,0 +1,11 @@
+unsigned short getPixelColor(int row, int col);
+int isGround(int row, int col);
+int canMoveLeft(int row, int col);
+int canMoveRight(int row, int col);
+void setPixel(int , int , unsigned short );
+void drawRect(int row, int col, int height, int width, unsigned short color);
+void delay(int n);
+void drawImage3 (int r, int c, int width, int height, const unsigned short* image);
+int meteortouch(int row, int col);
+int lose(int row, int col);
+int canMoveUp(int row, int col);

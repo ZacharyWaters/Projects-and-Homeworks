@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-suite>
+    <!-- rotate_bits() tests
+         yell at austin if they're broken ok -->
+    <test-case>
+        <name>rotate_bits(xBAAA, 0) = xBAAA</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>rotate_bits</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xBAAA, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xBAAA</answer>
+                <points>
+                    <answer>1</answer>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>rotate_bits(xBAAA, 1) = x7555 (corruption checker)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <fill-value>xD000</fill-value>
+        <input>
+            <test-subr>
+                <name>rotate_bits</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xBAAA, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x7555</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x7555, 0</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>rotate_bits(xBAAA, 2) = xEAAA</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>rotate_bits</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xBAAA, 2</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xEAAA</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x7555, 1</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>rotate_bits(xBAAA, 4) = xAAAB</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>rotate_bits</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xBAAA, 4</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xAAAB</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x7555, 3</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>rotate_bits(x1337, 4) = x3371</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>rotate_bits</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x1337, 4</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x3371</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x266E, 3</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>rotate_bits(x0001, 12) = x1000</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>rotate_bits</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x0001, 12</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x1000</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x0002, 11</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>rotate_bits(x4200, 16) = x4200</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>rotate_bits</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x4200, 16</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x4200</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x8400, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>rotate_bits(xABCD, 7) = xE6D5</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>rotate_bits</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xABCD, 7</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xE6D5</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x579B, 6</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+</test-suite>

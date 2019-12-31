@@ -1,0 +1,180 @@
++==============================================================================+
+| CS 2110 Spring 2018                                                          |
+| Lecitation 10                                                                |
++==============================================================================+
+
+Objective: Code a recursive function in LC-3 Assembly.
+
+Try to collaborate with your classmates if you're stuck, and don't hesitate to
+ask the TAs for help. If you are stuck on one part, or not clear about what
+it's asking, feel free to ask. Remember, the TAs are here to help you :)
+
+When you complete the lab in the provided template, show a TA to get credit.
+
+
++==============================================================================+
+| Calling Convention Review                                                    |
++==============================================================================+
+
+In order to standardize the way functions are called, we use a calling
+convention. Calling conventions are rules governing how stacks are arranged,
+how parameters are passed to functions, and how values are returned by
+functions. The details for a calling convention are mostly arbitrary. In CS
+2110, we use the LC-3 calling convention, defined by the author of the textbook.
+
+There are two sides to a calling convention. The first is what must be done by
+the code that is making a function call; this is the caller side. The second is
+what must be done by the function itself; this is the callee side. They both
+must follow the calling convention for everything to properly work.
+
+Global rules:
+
+    R5 = Frame pointer; points to location of first local variable in current
+         frame.
+    R6 = Stack pointer; points to the last used location on the stack
+
+    +-------------------+
+    | Local variable 2  | <- R6 points here after allocating space for locals
+    +-------------------+
+    | Local variable 1  | <- R5 points here during the function call
+    +-------------------+
+    | Old frame pointer | <- R6 points here while setting up the stack
+    +-------------------+
+    | Return address    |
+    +-------------------+
+    | Return value      | <- R6 points here after the function returns
+    +-------------------+
+    | First parameter   | <- R6 points here when the user calls the function
+    +-------------------+
+    | Last parameter    |
+    +-------------------+
+
+    Since R6 points to the last used location on the stack, here are examples
+    for pushing and popping values with the stack:
+
+        ADD R6, R6, -1
+        STR R0, R6, 0 ; Push R0 onto the stack
+
+        LDR R1, R6, 0
+        ADD R6, R6, 1 ; Pop value off the stack into R1
+
+Caller side:
+
+    Set up:
+
+        1. Push parameters in reverse order onto the stack
+        2. Use JSR/JSRR to call the function
+
+        Example: See lab13.asm
+
+    Clean up:
+
+        1. R6 is now one space higher on the stack than it was when you JSR'd
+        2. Retrieve the return value from the function
+        3. Pop the return value and parameters off the stack by subtracting
+           from R6
+
+        Example: See lab13.asm
+
+Callee side:
+
+    Set up:
+
+        1. Move R6 up 3 spaces since we're using them for our stack frame
+        2. Store our return address (which is in R7) on the stack at R6 + 1
+        3. Store our old frame pointer (R5 value) on the stack at R6 + 0
+        4. Set our new frame pointer to the location one above R6
+        5. Move R6 up however many local variables you have
+
+        Example:
+
+            ADD R6, R6, -3
+            STR R7, R6, 1
+            STR R5, R6, 0
+            ADD R5, R6, -1
+            ADD R6, R6, -2 ; Change this to however many locals there are!
+
+    Clean up:
+
+        1. At some point, the function must store return value to R5 + 3
+        2. Set R6 to point to the return value
+        3. Restore return address value (from R5 + 2)
+        4. Restore old frame pointer value (from R5 + 1)
+        5. Return from the function
+
+        Example:
+
+            STR R0, R5, 3 ; Assuming your answer is in R0
+            ADD R6, R5, 3
+            LDR R7, R5, 2
+            LDR R5, R5, 1
+            RET
+
+After setting up the stack frame, your function can access the parameters using
+R5 at any time since it points to a static location on the stack. For instance,
+if our function's header was:
+
+    int foo(int x, int y, int z);
+
+Then the arguments would have been pushed in the order z, y, x which puts x
+closer to where R5 points. They can be accessed like so:
+
+    LDR R0, R5, 4 ; R0 = x
+    LDR R1, R5, 5 ; R1 = y
+    LDR R2, R5, 6 ; R2 = z
+
+Of course, you need to follow the caller side of the calling convention if you
+plan to call any functions inside your function, like one would with recursion.
+
+
++==============================================================================+
+| Assignment                                                                   |
++==============================================================================+
+
+Implement a function which will sum the digits in a decimal number:
+
+    digisum(4)   = 4
+    digisum(34)  = 7
+    digisum(714) = 12
+
+To get credit for this lab, you must implement the code in the provided
+template, then use the provided XML test to see if your code is correct. Please
+use a terminal in the directory with your lab files, and show the output from
+the following command to a TA:
+
+    lc3test digisum_test.xml digisum.asm
+
+
++==============================================================================+
+| Pseudocode                                                                   |
++==============================================================================+
+
+int digisum(int n) {
+    int div = n / 10;
+    int mod = n % 10;
+    if(n == 0) {
+        return 0;
+    } else {
+        return mod + digisum(div);
+    }
+}
+
+
++==============================================================================+
+| Hints                                                                        |
++==============================================================================+
+
+Use the UDIV trap (TRAP x80) to perform division or modulus! Note that UDIV is
+a trap, not a function; it doesn't follow the calling convention. Here are the
+pre- and post conditions for UDIV:
+
+    Precondition: R0 = X
+                  R1 = Y
+
+    Postcondition: R0 = X / Y
+                   R1 = X % Y
+
+Your function must follow the LC-3 calling convention. This means that the
+variables in the above pseudocode "div" and "mod" must explicitly be stored
+on the stack regardless of if you can complete this without storing them. The
+XML test will test for this!

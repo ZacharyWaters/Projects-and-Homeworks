@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-suite>
+    <!-- right_shift() tests
+         yell at austin if they're broken ok
+         if they're not broken be nice -->
+    <test-case>
+        <name>right_shift(0, 0, 0) = 0</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>0, 0, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>0</answer>
+                <points>
+                    <answer>1</answer>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift(20, 0, 0) = 20</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>20, 0, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>20</answer>
+                <points>
+                    <answer>1</answer>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift(20, 1, 0) = 10 (corruption checker)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <fill-value>xD000</fill-value>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>20, 1, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>10</answer>
+                <calls>
+                    <call><name>right_shift_once</name><params>20, 0</params></call>
+                    <call><name>right_shift</name><params>10, 0, 0</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift(xFEF0, 4, 0) = x0FEF</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xFEF0, 4, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x0FEF</answer>
+                <calls>
+                    <call><name>right_shift_once</name><params>xFEF0, 0</params></call>
+                    <call><name>right_shift</name><params>x7F78, 3, 0</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift(xFEF0, 4, 1) = xFFEF</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xFEF0, 4, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xFFEF</answer>
+                <calls>
+                    <call><name>right_shift_once</name><params>xFEF0, 1</params></call>
+                    <call><name>right_shift</name><params>xFF78, 3, 1</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift(x8000, 15, 1) = xFFFF</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x8000, 15, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xFFFF</answer>
+                <calls>
+                    <call><name>right_shift_once</name><params>x8000, 1</params></call>
+                    <call><name>right_shift</name><params>xC000, 14, 1</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift(x8000, 15, 0) = x0001</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x8000, 15, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x0001</answer>
+                <calls>
+                    <call><name>right_shift_once</name><params>x8000, 0</params></call>
+                    <call><name>right_shift</name><params>x4000, 14, 0</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift(x4444, 2, 0) = x0444</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x4444, 2, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x1111</answer>
+                <calls>
+                    <call><name>right_shift_once</name><params>x4444, 0</params></call>
+                    <call><name>right_shift</name><params>x2222, 1, 0</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift(x0000, 3, 0) = x0000</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x0000, 3, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x0000</answer>
+                <calls>
+                    <call><name>right_shift_once</name><params>x0000, 0</params></call>
+                    <call><name>right_shift</name><params>x0000, 2, 0</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift(x0000, 3, 1) = x0000</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x0000, 3, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x0000</answer>
+                <calls>
+                    <call><name>right_shift_once</name><params>x0000, 1</params></call>
+                    <call><name>right_shift</name><params>x0000, 2, 1</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+</test-suite>

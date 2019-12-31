@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-suite>
+    <test-case>
+        <name>reverse_odd([10,-8,105,4,0,-54,12,76,-1,34], 0, 9)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-value>
+                <address>ARRAY</address>
+                <value>x7000</value>
+            </test-value>
+            <test-array>
+                <address>ARRAY</address>
+                <value>10,-8,105,4,0,-54,12,76,-1,34</value>
+            </test-array>
+            <test-subr>
+                <name>reverse_odd</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x7000, 0, 9</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-array points="5">
+                <address>ARRAY</address>
+                <value>34,-1,76,12,-54,0,4,105,-8,10</value>
+            </test-array>
+            <test-subr>
+                <answer>2</answer>
+                <calls>
+                    <call><name>reverse_odd</name><params>x7000, 1, 8</params></call>
+                </calls>
+                <points>
+                    <answer>2</answer>
+                    <calls>3</calls>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <params>2</params>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>reverse_odd([8,-4,3,0], 0, 3)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-value>
+                <address>ARRAY</address>
+                <value>x7000</value>
+            </test-value>
+            <test-array>
+                <address>ARRAY</address>
+                <value>8,-4,3,0</value>
+            </test-array>
+            <test-subr>
+                <name>reverse_odd</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x7000, 0, 3</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-array points="5">
+                <address>ARRAY</address>
+                <value>0,3,-4,8</value>
+            </test-array>
+            <test-subr>
+                <answer>1</answer>
+                <calls>
+                    <call><name>reverse_odd</name><params>x7000, 1, 2</params></call>
+                </calls>
+                <points>
+                    <answer>2</answer>
+                    <calls>3</calls>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <params>2</params>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>reverse_odd([1], 0, 0)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-value>
+                <address>ARRAY</address>
+                <value>x7000</value>
+            </test-value>
+            <test-array>
+                <address>ARRAY</address>
+                <value>1</value>
+            </test-array>
+            <test-subr>
+                <name>reverse_odd</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x7000, 0, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-array points="5">
+                <address>ARRAY</address>
+                <value>1</value>
+            </test-array>
+            <test-subr>
+                <answer>1</answer>
+                <calls>
+                    <call><name>reverse_odd</name><params>x7000, 1, -1</params></call>
+                </calls>
+                <points>
+                    <answer>2</answer>
+                    <calls>3</calls>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <params>2</params>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>reverse_odd([9,11,-17,8,24,101,105,23,88,-20,14,-3,7,0,34], 0, 14)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-value>
+                <address>ARRAY</address>
+                <value>x7000</value>
+            </test-value>
+            <test-array>
+                <address>ARRAY</address>
+                <value>9,11,-17,8,24,101,105,23,88,-20,14,-3,7,0,34</value>
+            </test-array>
+            <test-subr>
+                <name>reverse_odd</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x7000, 0, 14</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-array points="5">
+                <address>ARRAY</address>
+                <value>34,0,7,-3,14,-20,88,23,105,101,24,8,-17,11,9</value>
+            </test-array>
+            <test-subr>
+                <answer>8</answer>
+                <calls>
+                    <call><name>reverse_odd</name><params>x7000, 1, 13</params></call>
+                </calls>
+                <points>
+                    <answer>2</answer>
+                    <calls>3</calls>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <params>2</params>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+    <name>reverse_odd([-4,-3,-2,-1,0,1,2,3,4], 0, 8)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-value>
+                <address>ARRAY</address>
+                <value>x7000</value>
+            </test-value>
+            <test-array>
+                <address>ARRAY</address>
+                <value>-4,-3,-2,-1,0,1,2,3,4</value>
+            </test-array>
+            <test-subr>
+                <name>reverse_odd</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x7000, 0, 8</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-array points="5">
+                <address>ARRAY</address>
+                <value>4,3,2,1,0,-1,-2,-3,-4</value>
+            </test-array>
+            <test-subr>
+                <answer>4</answer>
+                <calls>
+                    <call><name>reverse_odd</name><params>x7000, 1, 7</params></call>
+                </calls>
+                <points>
+                    <answer>2</answer>
+                    <calls>3</calls>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <params>2</params>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+</test-suite>

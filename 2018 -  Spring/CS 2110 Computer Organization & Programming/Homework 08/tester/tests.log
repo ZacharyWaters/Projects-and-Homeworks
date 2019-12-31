@@ -1,0 +1,44 @@
+Running suite graphics
+graphics_suite.c:117:P:noFilter_untouched:noFilter_untouched:0: Passed
+graphics_suite.c:123:P:greyscaleFilter_white:greyscaleFilter_white:0: Passed
+graphics_suite.c:129:P:greyscaleFilter_black:greyscaleFilter_black:0: Passed
+graphics_suite.c:135:P:greyscaleFilter_green:greyscaleFilter_green:0: Passed
+graphics_suite.c:141:P:greyscaleFilter_cyan:greyscaleFilter_cyan:0: Passed
+graphics_suite.c:147:P:greyscaleFilter_darkpurple:greyscaleFilter_darkpurple:0: Passed
+graphics_suite.c:153:P:redOnlyFilter_white:redOnlyFilter_white:0: Passed
+graphics_suite.c:159:P:redOnlyFilter_black:redOnlyFilter_black:0: Passed
+graphics_suite.c:165:P:redOnlyFilter_green:redOnlyFilter_green:0: Passed
+graphics_suite.c:171:P:redOnlyFilter_cyan:redOnlyFilter_cyan:0: Passed
+graphics_suite.c:177:P:redOnlyFilter_darkpurple:redOnlyFilter_darkpurple:0: Passed
+graphics_suite.c:183:P:brighterFilter_white:brighterFilter_white:0: Passed
+graphics_suite.c:189:P:brighterFilter_black:brighterFilter_black:0: Passed
+graphics_suite.c:195:P:brighterFilter_green:brighterFilter_green:0: Passed
+graphics_suite.c:201:P:brighterFilter_darkgreen:brighterFilter_darkgreen:0: Passed
+graphics_suite.c:207:P:brighterFilter_darkpurple:brighterFilter_darkpurple:0: Passed
+graphics_suite.c:221:P:drawPixel_simple:drawPixel_simple:0: Passed
+graphics_suite.c:234:P:drawPixel_outofbounds:drawPixel_outofbounds:0: Passed
+graphics_suite.c:247:P:drawFilledRectangle_simple:drawFilledRectangle_simple:0: Passed
+graphics_suite.c:259:P:drawFilledRectangle_outofbounds:drawFilledRectangle_outofbounds:0: Passed
+graphics_suite.c:271:P:drawLine_horizontal:drawLine_horizontal:0: Passed
+graphics_suite.c:283:P:drawLine_vertical:drawLine_vertical:0: Passed
+graphics_suite.c:295:P:drawLine_positiveslope:drawLine_positiveslope:0: Passed
+graphics_suite.c:308:P:drawLine_negativeslope:drawLine_negativeslope:0: Passed
+graphics_suite.c:321:P:drawLine_outofbounds:drawLine_outofbounds:0: Passed
+graphics_suite.c:340:P:drawPolygon_triangle:drawPolygon_triangle:0: Passed
+graphics_suite.c:361:P:drawPolygon_star:drawPolygon_star:0: Passed
+graphics_suite.c:380:P:drawPolygon_outofbounds:drawPolygon_outofbounds:0: Passed
+graphics_suite.c:393:P:drawRectangle_simple:drawRectangle_simple:0: Passed
+graphics_suite.c:405:P:drawRectangle_outofbounds:drawRectangle_outofbounds:0: Passed
+graphics_suite.c:420:P:drawCircle_simple:drawCircle_simple:0: Passed
+graphics_suite.c:434:P:drawCircle_outofbounds:drawCircle_outofbounds:0: Passed
+graphics_suite.c:449:P:drawFilledCircle_simple:drawFilledCircle_simple:0: Passed
+graphics_suite.c:463:P:drawFilledCircle_outofbounds:drawFilledCircle_outofbounds:0: Passed
+graphics_suite.c:475:P:drawImage_nocrop_simple:drawImage_nocrop_simple:0: Passed
+graphics_suite.c:487:P:drawImage_nocrop_outofbounds:drawImage_nocrop_outofbounds:0: Passed
+graphics_suite.c:499:P:drawImage_nocrop_withfilter:drawImage_nocrop_withfilter:0: Passed
+graphics_suite.c:512:F:drawImage_withcrop_simple:drawImage_withcrop_simple:0: Assertion 'paddedBuffer[i] == compareBuffer[i]' failed: paddedBuffer[i] == 32767, compareBuffer[i] == 23049
+graphics_suite.c:528:F:drawImage_withcrop_outofbounds:drawImage_withcrop_outofbounds:0: Assertion 'paddedBuffer[i] == compareBuffer[i]' failed: paddedBuffer[i] == 32767, compareBuffer[i] == 23049
+graphics_suite.c:558:F:drawImage_withcrop_withfilter:drawImage_withcrop_withfilter:0: Assertion 'paddedBuffer[i] == compareBuffer[i]' failed: paddedBuffer[i] == 25232, compareBuffer[i] == 28472
+graphics_suite.c:585:P:combination_cems_almost_turkish_flag:combination_cems_almost_turkish_flag:0: Passed
+Results for all suites run:
+92%: Checks: 41, Failures: 3, Errors: 0

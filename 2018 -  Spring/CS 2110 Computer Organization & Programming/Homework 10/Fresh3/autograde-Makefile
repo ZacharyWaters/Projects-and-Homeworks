@@ -1,0 +1,38 @@
+CC = gcc
+CFLAGS = -Wl,--wrap=malloc,--wrap=free,--wrap=calloc,--wrap=realloc -D_POSIX_SOURCE -Wall -Werror -pedantic -std=c99
+DEBUG_FLAGS = -g -DDEBUG
+
+CFILES = array_list.c circ_list.c grader.c wrap.c
+OFILES = array_list.o circ_list.o grader.o wrap.o
+
+
+stuff: clean hw10tests1 hw10tests2 hw10tests3 hw10tests4
+	python3 ./grader.py
+
+ahh: hw10
+	tar -xvf autograde.tar
+	rm -f array_list.c circ_list.c
+	cp array_list_student.c array_list.c
+	cp circ_list_student.c circ_list.c
+	python3 ./ahh.py
+
+hw10tests1: hw10tests
+	$(CC) $(CFLAGS) $(OFILES) grader_runner_forkless.c -o hw10tests1
+
+hw10tests2: hw10tests
+	$(CC) $(CFLAGS) $(OFILES) grader_runner_forked.c -o hw10tests2
+
+hw10tests3: hw10tests
+	$(CC) $(CFLAGS) $(OFILES) grader_runner_single.c -o hw10tests3
+
+hw10tests4: hw10tests
+	$(CC) $(CFLAGS) $(OFILES) grader_get_tests.c -o hw10tests4
+
+hw10tests: ahh $(CFILES)
+	$(CC) $(CFLAGS) -c $(CFILES)
+
+tar-grader:
+	tar -cvf autograde.tar -T grader_files.txt
+
+clean:
+	rm -f *.o hw10tests1 hw10tests2 hw10tests3 hw10tests4 gradelog.json test.json

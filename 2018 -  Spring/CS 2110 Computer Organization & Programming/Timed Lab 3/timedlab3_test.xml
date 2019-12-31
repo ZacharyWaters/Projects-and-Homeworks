@@ -1,0 +1,184 @@
+<test-suite>
+    <test-case>
+        <name>range([])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>0</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>0</value>
+            </test-value>
+            <test-value>
+                <address>RANGE</address>
+                <value>-1</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="2">
+                <address>RANGE</address>
+                <value>0</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>range([5])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>0</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>1</value>
+            </test-value>
+            <test-value>
+                <address>RANGE</address>
+                <value>-1</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="2">
+                <address>RANGE</address>
+                <value>0</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>range([-5, 5, 5, 0, 2])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>-5, 5, 5, 0, 2</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>5</value>
+            </test-value>
+            <test-value>
+                <address>RANGE</address>
+                <value>-1</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="2">
+                <address>RANGE</address>
+                <value>10</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>range([432, 171, 486, 81, 269, 352, 45, 490, 347, 354, 188, 433, 329, 33, 345])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>432, 171, 486, 81, 269, 352, 45, 490, 347, 354, 188, 433, 329, 33, 345</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>15</value>
+            </test-value>
+            <test-value>
+                <address>RANGE</address>
+                <value>-1</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="2">
+                <address>RANGE</address>
+                <value>457</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>range([613, 628, 598, 373, 148, 121, 665, 416, 835, 650, 619, 735, 779, 512, 435, 453, 758, 685, 331, 424, 814, 557, 750, 74, 32])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>613, 628, 598, 373, 148, 121, 665, 416, 835, 650, 619, 735, 779, 512, 435, 453, 758, 685, 331, 424, 814, 557, 750, 74, 32</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>25</value>
+            </test-value>
+            <test-value>
+                <address>RANGE</address>
+                <value>-1</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="2">
+                <address>RANGE</address>
+                <value>803</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>range([295, -149, 481, -424, -293, 356, 202, 43, -410, -287])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>-295, -149, 481, -424, -293, 356, 202, 43, -410, -287</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>10</value>
+            </test-value>
+            <test-value>
+                <address>RANGE</address>
+                <value>-1</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="2">
+                <address>RANGE</address>
+                <value>905</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>range([-368, 251, 55, -341, -71, -62, 32, 371, -357, 363, -229, 156, -38, 87, 118, 443, -156, -359, 46, -326, 70, -283, -307, 170, 234])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>-368, 251, 55, -341, -71, -62, 32, 371, -357, 363, -229, 156, -38, 87, 118, 443, -156, -359, 46, -326, 70, -283, -307, 170, 234</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>25</value>
+            </test-value>
+            <test-value>
+                <address>RANGE</address>
+                <value>-1</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="2">
+                <address>RANGE</address>
+                <value>811</value>
+            </test-value>
+        </output>
+    </test-case>
+</test-suite>

@@ -1,0 +1,16 @@
+[{"test_name":"test_create_node_second_alloc_null", "test_score":5},
+{"test_name":"test_create_node", "test_score":7},
+{"test_name":"test_create_list_third_alloc_null", "test_score":5},
+{"test_name":"test_create_list", "test_score":5},
+{"test_name":"test_set_null_params", "test_score":6},
+{"test_name":"test_set_easy_1", "test_score":6},
+{"test_name":"test_set_easy_2", "test_score":6},
+{"test_name":"test_set_easy_3", "test_score":6},
+{"test_name":"test_set_easy_4", "test_score":6},
+{"test_name":"test_set_hard_3", "test_score":6},
+{"test_name":"test_set_hard_4", "test_score":6},
+{"test_name":"test_set_hard_4_fail", "test_score":6},
+{"test_name":"test_get_2", "test_score":8},
+{"test_name":"test_get_3", "test_score":8},
+{"test_name":"test_destroy", "test_score":14}
+]

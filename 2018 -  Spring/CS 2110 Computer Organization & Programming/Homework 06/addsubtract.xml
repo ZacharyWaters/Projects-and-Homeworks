@@ -1,0 +1,132 @@
+<test-suite>
+    <test-case>
+        <name>addsubtract([0])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>0</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>1</value>
+            </test-value>
+            <test-value>
+                <address>RESULT</address>
+                <value>1337</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="4">
+                <address>RESULT</address>
+                <value>0</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>addsubtract([0, 1, 1])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>0, 1, 1</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>3</value>
+            </test-value>
+            <test-value>
+                <address>RESULT</address>
+                <value>1337</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="4">
+                <address>RESULT</address>
+                <value>0</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>addsubtract([-1, 0, 0, 1])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>-1, 0, 0, 1</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>4</value>
+            </test-value>
+            <test-value>
+                <address>RESULT</address>
+                <value>1337</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="4">
+                <address>RESULT</address>
+                <value>-2</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>addsubtract([1730, 5542, -7914, -6313, -9254, 2190, -2713, 1556, 8719, -1375, -4160, 4551, -7685, -5263, -3440, 5573, 6240, -6415, 1472, -8954, -7155, -4298, -5009, 3914, -651, -5974, -9354, 8159, -8333, 8458, 9947, 8755, -6933, 1239, -1057, -5538, -7695, 162, -4270, 5223, 2066, -388, -2445, -1756, -1802, 9287, 2936, -9386, -4086, -3537])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>1730, 5542, -7914, -6313, -9254, 2190, -2713, 1556, 8719, -1375, -4160, 4551, -7685, -5263, -3440, 5573, 6240, -6415, 1472, -8954, -7155, -4298, -5009, 3914, -651, -5974, -9354, 8159, -8333, 8458, 9947, 8755, -6933, 1239, -1057, -5538, -7695, 162, -4270, 5223, 2066, -388, -2445, -1756, -1802, 9287, 2936, -9386, -4086, -3537</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>50</value>
+            </test-value>
+            <test-value>
+                <address>RESULT</address>
+                <value>1337</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="4">
+                <address>RESULT</address>
+                <value>-66258</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>addsubtract([])</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-array>
+                <address>ARRAY</address>
+                <value>0</value>
+            </test-array>
+            <test-value>
+                <address>LENGTH</address>
+                <value>0</value>
+            </test-value>
+            <test-value>
+                <address>RESULT</address>
+                <value>1337</value>
+            </test-value>
+        </input>
+        <output>
+            <test-value points="4">
+                <address>RESULT</address>
+                <value>0</value>
+            </test-value>
+        </output>
+    </test-case>
+</test-suite>

@@ -1,0 +1,2 @@
+#!/bin/bash
+[[ $(sha512sum list_array.h | cut -d " " -f 1) == 8bf2304417eb2a49c01ad3c22ccdd83f8b2282dd6d6e9658e0cb90f26334b5bd42cc77038250db98da544a066c69d8b585c3471f4f423034478edbfb7bf3568a ]] || { printf 'error: list_array.h was modified! re-download it and try again\n' >&2; exit 1; }

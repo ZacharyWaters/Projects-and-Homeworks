@@ -1,0 +1,87 @@
+<test-suite>
+    <test-case>
+        <name>NumberTriangle(1)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>TRIANGLE</address>
+                <value>1</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="6">
+                <value>1\n</value>
+            </test-stdout>
+        </output>
+    </test-case>
+    <test-case>
+        <name>NumberTriangle(2)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>TRIANGLE</address>
+                <value>2</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="6">
+                <value>22\n</value>
+            </test-stdout>
+        </output>
+    </test-case>
+    <test-case>
+        <name>NumberTriangle(7)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>TRIANGLE</address>
+                <value>7</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="6">
+                <value>7777777\n 55555\n  333\n   1\n</value>
+            </test-stdout>
+        </output>
+    </test-case>
+    <test-case>
+        <name>NumberTriangle(8)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>TRIANGLE</address>
+                <value>8</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="6">
+                <value>88888888\n 666666\n  4444\n   22\n</value>
+            </test-stdout>
+        </output>
+    </test-case>
+    <test-case>
+        <name>NumberTriangle(0)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>TRIANGLE</address>
+                <value>0</value>
+            </test-value>
+        </input>
+        <output>
+            <test-stdout condition="equals" points="6">
+                <value></value>
+            </test-stdout>
+        </output>
+    </test-case>
+</test-suite>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-suite>
+    <!-- pow() tests
+         yell at austin if they're broken ok
+         if they're not broken be nice -->
+    <test-case>
+        <name>pow(0, 0) = 1</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>pow</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>0, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>1</answer>
+                <points>
+                    <answer>1</answer>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>pow(7, 0) = 1</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>pow</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>7, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>1</answer>
+                <points>
+                    <answer>1</answer>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>pow(7, 1) = 7</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>pow</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>7, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>7</answer>
+                <calls>
+                    <call><name>right_shift</name><params>1, 1, 1</params></call>
+                    <call><name>pow</name><params>7, 0</params></call>
+                    <call><name>mult</name><params>1, 1</params></call>
+                    <call><name>mult</name><params>1, 7</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>pow(7, 1) = 7 (corruption checker)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <fill-value>xD000</fill-value>
+        <input>
+            <test-subr>
+                <name>pow</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>7, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>7</answer>
+                <calls>
+                    <call><name>right_shift</name><params>1, 1, 1</params></call>
+                    <call><name>pow</name><params>7, 0</params></call>
+                    <call><name>mult</name><params>1, 1</params></call>
+                    <call><name>mult</name><params>1, 7</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>pow(16, 3) = 4096</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>pow</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>16, 3</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>4096</answer>
+                <calls>
+                    <call><name>right_shift</name><params>3, 1, 1</params></call>
+                    <call><name>pow</name><params>16, 1</params></call>
+                    <call><name>mult</name><params>16, 16</params></call>
+                    <call><name>mult</name><params>256, 16</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>pow(13, 4) = 28561</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>pow</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>13, 4</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>28561</answer>
+                <calls>
+                    <call><name>right_shift</name><params>4, 1, 1</params></call>
+                    <call><name>pow</name><params>13, 2</params></call>
+                    <call><name>mult</name><params>169, 169</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+</test-suite>

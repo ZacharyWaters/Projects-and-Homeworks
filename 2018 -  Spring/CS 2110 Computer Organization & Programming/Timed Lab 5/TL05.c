@@ -1,0 +1,104 @@
+// Name: *YOUR NAME HERE*
+
+#include "myLib.h"
+#include "rotate_puppy.h"
+#include "rotate_puppy_red.h"
+#include "rotate_puppy_blue.h"
+#include "rotate_puppy_green.h"
+#include "background.h"
+
+#define OFFSET(r, c, rowlen) ((c) + (rowlen)*(r)) 
+volatile unsigned short *videoBuffer = (unsigned short *)0x6000000;
+
+/*	1)
+	Use DMA to implement the drawFullBackgroundImage function. 
+	You may not use any loops in this function, but you are guarenteed 
+	that the image passed is the same size as the screen, 240x160.
+*/
+void drawFullBackgroundImage(const unsigned short *image) {
+	DMA[DMA_CHANNEL_3].src = image;
+	DMA[DMA_CHANNEL_3].dst = videoBuffer;
+	DMA[DMA_CHANNEL_3].cnt = DMA_ON | (240*160);
+}
+
+/* 2) 
+	Implement the drawImageRotated180 function.
+	You will need to draw an image at the specified point on the screen
+	and rotate it 180 degrees. HINT: rotating 180 degrees is the same thing
+	as flipping it both horizontally and vertically!
+	You will also need to pass each pixel from the image through the colorFilter
+	and draw the output onto the screen
+*/
+
+void drawImageRotated180(const unsigned short *image, unsigned int row, unsigned int col,
+	 unsigned int width, unsigned int height, unsigned short (*colorFilter)(unsigned short)) {
+for(unsigned int i = 0;i<height;i++){
+	DMA[DMA_CHANNEL_3].src = (image + OFFSET(i,0,width));
+	DMA[DMA_CHANNEL_3].dst = videoBuffer + OFFSET(row+height-1-i,col+61,240);	
+	DMA[DMA_CHANNEL_3].cnt = DMA_ON|width|DMA_DESTINATION_DECREMENT;
+}
+for(unsigned int i = 0;i<height;i++){
+int kk = *(videoBuffer + OFFSET(row+height-1-i,col+61,240));
+int short xx = colorFilter((unsigned short)kk);
+*(videoBuffer + OFFSET(row+height-1-i,col+61,240)) = xx;
+}
+}
+
+/**
+ 3)
+	Implement the following 3 function: redFilter, greenFilter, and blueFilter
+	For each function, create a new pixel where all the other channels are zero'd out
+	i.e the redFilter returns a pixel that only has the red channel from the given pixel,
+	greenFilter only has the green channel, etc.
+*/
+unsigned short redFilter(unsigned short pixel) {;   
+	return (pixel & 31);
+}
+
+unsigned short greenFilter(unsigned short pixel) {
+	return (pixel & (31<<5));
+}
+
+unsigned short blueFilter(unsigned short pixel) {
+	return (pixel & (31<<10));
+
+}
+
+/* DO NOT EDIT THIS */
+unsigned short noFilter(unsigned short pixel) {
+	return pixel;
+}
+
+/* 4)
+	Using the functions you just wrote, draw all the images onto the screen. 
+
+*/
+int main(void)
+{
+	REG_DISPCNT = MODE3 | BG2_ENABLE;	
+	waitForVblank();
+    	
+	//Draw the background image
+	drawFullBackgroundImage(background);
+	//void drawImageRotated180(const unsigned short *image, unsigned int row, unsigned int col,unsigned int width, unsigned int height, unsigned short (*colorFilter)(unsigned short)) {
+	//Draw and rotate rotate_puppy at row 9 and column 31 using noFilter
+	drawImageRotated180(rotate_puppy,9,31,ROTATE_PUPPY_WIDTH,ROTATE_PUPPY_HEIGHT,noFilter);
+	
+	//Draw and rotate rotate_puppy_red at row 9 and column 140 using redFilter
+	drawImageRotated180(rotate_puppy_red,9,140,ROTATE_PUPPY_RED_WIDTH,ROTATE_PUPPY_RED_HEIGHT,redFilter);
+	
+	//Draw and rotate rotate_puppy_green at row 89 and column 31 using greenFilter
+	drawImageRotated180(rotate_puppy,89,31,ROTATE_PUPPY_GREEN_WIDTH,ROTATE_PUPPY_GREEN_HEIGHT,greenFilter);
+	
+	//Draw and rotate rotate_puppy_blue at row 89 and column 140 using blueFilter
+	drawImageRotated180(rotate_puppy,89,140,ROTATE_PUPPY_BLUE_WIDTH,ROTATE_PUPPY_BLUE_HEIGHT,blueFilter);
+
+	while (1);
+}
+
+
+void waitForVblank()
+{
+	while(SCANLINECOUNTER > 160);
+	while(SCANLINECOUNTER < 160);
+}

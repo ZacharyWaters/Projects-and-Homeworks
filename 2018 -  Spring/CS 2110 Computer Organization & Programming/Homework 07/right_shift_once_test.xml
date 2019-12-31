@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-suite>
+    <!-- right_shift_once() tests
+         yell at austin if they're broken ok
+         if they're not broken be nice -->
+    <test-case>
+        <name>right_shift_once(0x0000, 0) = 0 (corruption checker)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <fill-value>xD000</fill-value>
+        <input>
+            <test-subr>
+                <name>right_shift_once</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>0, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>0</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>0, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift_once(xF00D, 0) = x7806</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift_once</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xF00D, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x7806</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>xF00D, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift_once(xF00D, 1) = xF806</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift_once</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xF00D, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xF806</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>xF00D, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift_once(xF00D, 2) = xF806</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift_once</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xF00D, 2</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xF806</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>xF00D, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift_once(xFFFF, 0) = x7FFF</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift_once</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xFFFF, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x7FFF</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>xFFFF, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift_once(xFFFF, 1) = xFFFF</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift_once</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>xFFFF, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xFFFF</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>xFFFF, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift_once(x0000, 1) = x0000</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift_once</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x0000, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x0000</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x0000, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift_once(x8888, 1) = xC444</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift_once</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x8888, 1</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>xC444</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x8888, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+    <test-case>
+        <name>right_shift_once(x8888, 0) = x4444</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <fully-randomize>1</fully-randomize>
+        <input>
+            <test-subr>
+                <name>right_shift_once</name>
+                <stack>xF000</stack>
+                <r5>xCAFE</r5>
+                <r7>x8000</r7>
+                <params>x8888, 0</params>
+            </test-subr>
+        </input>
+        <output>
+            <test-subr>
+                <answer>x4444</answer>
+                <calls>
+                    <call><name>rotate_bits</name><params>x8888, 15</params></call>
+                </calls>
+                <points>
+                    <answer>1</answer>
+                    <calls>2</calls>
+                    <params>1</params>
+                    <r7>1</r7>
+                    <r6>1</r6>
+                    <r5>1</r5>
+                    <read-answer>1</read-answer>
+                </points>
+                <deductions-per-mistake>1</deductions-per-mistake>
+            </test-subr>
+        </output>
+    </test-case>
+</test-suite>

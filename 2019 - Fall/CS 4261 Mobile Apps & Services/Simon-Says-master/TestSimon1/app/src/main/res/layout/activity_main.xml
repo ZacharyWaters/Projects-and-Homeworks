@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6632a8"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/graysquare" />
+
+    <ImageButton
+        android:id="@+id/redImageButton"
+        android:layout_width="0dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="163dp"
+        app:layout_constraintEnd_toEndOf="@+id/greenImageButton"
+        app:layout_constraintStart_toStartOf="@+id/greenImageButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/testredbutton1" />
+
+    <ImageButton
+        android:id="@+id/blueImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/redImageButton"
+        app:layout_constraintEnd_toEndOf="@+id/yellowImageButton"
+        app:layout_constraintStart_toStartOf="@+id/yellowImageButton"
+        app:layout_constraintTop_toTopOf="@+id/redImageButton"
+        app:srcCompat="@drawable/testbluebutton1" />
+
+    <ImageButton
+        android:id="@+id/greenImageButton"
+        android:layout_width="136dp"
+        android:layout_height="136dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redImageButton"
+        app:srcCompat="@drawable/testgreenbutton1" />
+
+    <ImageButton
+        android:id="@+id/yellowImageButton"
+        android:layout_width="136dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginStart="46dp"
+        app:layout_constraintBottom_toBottomOf="@+id/greenImageButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/greenImageButton"
+        app:layout_constraintTop_toTopOf="@+id/greenImageButton"
+        app:srcCompat="@drawable/testyellowbutton1" />
+
+    <TextView
+        android:id="@+id/textboxUnderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Hello World!"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:fontFamily="@font/chonburi"
+        app:layout_constraintEnd_toStartOf="@+id/scoreTracker"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreTracker" />
+
+    <TextView
+        android:id="@+id/scoreTracker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_marginTop="16dp"
+        android:text="Score: "
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:fontFamily="@font/holtwood_one_sc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/roundNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Round 1"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        app:fontFamily="@font/holtwood_one_sc"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:text="30"
+        android:textColor="#ffffff"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:fontFamily="@font/holtwood_one_sc"
+        app:layout_constraintStart_toStartOf="@+id/textboxUnderButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
